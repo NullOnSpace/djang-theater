@@ -1,0 +1,14 @@
+{% load theater %}
+
+{% for k, v in media.items %}
+  {% if v.items %}
+    <button class="btn btn-info">{{ k }}</button><br>
+      <div class="folder hidden" style="margin-left:8px;">
+        {% load_dir v %}
+      </div>
+  {% else %}
+    {% for mp4 in v %}
+      <button class="btn btn-primary">{{ mp4 }}</button><br>
+    {% endfor %}
+  {% endif %}
+{% endfor %}
